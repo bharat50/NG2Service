@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-primary" *ngIf="hero">
+    <div class="panel-heading" style="font-size:large">
+
+        {{pageTitle+ ':'+ hero.heroName}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="row">
+
+                    <div class="col-md-3">Hero Name : </div>
+                    <div class="col-md-6">{{hero.heroName}} </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">Real Name : </div>
+                    <div class="col-md-6">{{hero.realName{} </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">Strength : </div>
+                    <div class="col-md-6">{{hero.heroStrength}} </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">Nature : </div>
+                    <div class="col-md-6">{{hero.heroNature}} </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-default" (click)='onBack()' style='width:80px'>
+            <i class="glyphicon glyphicon-chevron-left"></i> Back
+        </a>
+    </div> 
+</div>

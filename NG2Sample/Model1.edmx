@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HerodbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Herodb.dbo.tbl_hero' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_hero">
+          <Key>
+            <PropertyRef Name="heroId" />
+          </Key>
+          <Property Name="heroId" Type="int" Nullable="false" />
+          <Property Name="heroName" Type="nvarchar" MaxLength="50" />
+          <Property Name="realName" Type="nvarchar" MaxLength="50" />
+          <Property Name="heroStrength" Type="nvarchar" MaxLength="50" />
+          <Property Name="heroNature" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="HerodbModelStoreContainer">
+          <EntitySet Name="tbl_hero" EntityType="Self.tbl_hero" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_hero].[heroId] AS [heroId], 
+    [tbl_hero].[heroName] AS [heroName], 
+    [tbl_hero].[realName] AS [realName], 
+    [tbl_hero].[heroStrength] AS [heroStrength], 
+    [tbl_hero].[heroNature] AS [heroNature], 
+    [tbl_hero].[ImageUrl] AS [ImageUrl]
+    FROM [dbo].[tbl_hero] AS [tbl_hero]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HerodbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_hero">
+          <Key>
+            <PropertyRef Name="heroId" />
+          </Key>
+          <Property Name="heroId" Type="Int32" Nullable="false" />
+          <Property Name="heroName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="realName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="heroStrength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="heroNature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HerodbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_hero" EntityType="Self.tbl_hero" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HerodbModelStoreContainer" CdmEntityContainer="HerodbEntities">
+          <EntitySetMapping Name="tbl_hero">
+            <EntityTypeMapping TypeName="HerodbModel.tbl_hero">
+              <MappingFragment StoreEntitySet="tbl_hero">
+                <ScalarProperty Name="heroId" ColumnName="heroId" />
+                <ScalarProperty Name="heroName" ColumnName="heroName" />
+                <ScalarProperty Name="realName" ColumnName="realName" />
+                <ScalarProperty Name="heroStrength" ColumnName="heroStrength" />
+                <ScalarProperty Name="heroNature" ColumnName="heroNature" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
